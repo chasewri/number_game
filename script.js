@@ -17,7 +17,7 @@ const biggestNum = determineUpLimit();
 const smallestNum = determineLowLimit();
 
 //
-// If I don't define biggestNum and smallestNum, it's saying they're undefined at
+// If I don't define biggestNum and smallestNum globally, it's saying they're undefined at
 // lines 5 and 6. I don't understand why they won't pass as arguements there.
 // They console.log within the function fine.
 //
