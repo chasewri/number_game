@@ -10,10 +10,30 @@ guessDiv.addEventListener('click', function(){guessTracker(prevGuesses, secretNu
 guessDiv.addEventListener('click', function(){checkRan(secretNum)});
 guessDiv.addEventListener('click', function(){acceptGuess(secretNum, prevGuesses)});
 
+//
+// This shouldn't be called globally like this for it to work the way I want.
+//
 const biggestNum = determineUpLimit();
 const smallestNum = determineLowLimit();
-// const secretNum = randomNum(biggestNum, smallestNum);
-// console.log('secret at gobal', secretNum);
+
+//
+// If I don't define biggestNum and smallestNum, it's saying they're undefined at
+// lines 5 and 6. I don't understand why they won't pass as arguements there.
+// They console.log within the function fine.
+//
+//
+function determineUpLimit() {
+  const biggestNum = parseInt(document.getElementById('upper').value);
+  console.log('biggest in determine', biggestNum);
+  return biggestNum;
+}
+function determineLowLimit() {
+  const smallestNum = parseInt(document.getElementById('lower').value);
+  console.log('smallest in determine', smallestNum);
+  return smallestNum;
+}
+
+
 let prevGuesses = [];
 function guessTracker(prevGuesses, secretNum) {
   console.log('secret at guess', secretNum);
@@ -54,17 +74,6 @@ function checkRan(secretNum) {
   console.log('secret at check', secretNum);
 }
 
-// get those range numbers
-function determineUpLimit() {
-  const biggestNum = parseInt(document.getElementById('upper').value);
-  console.log('biggest in determine', biggestNum);
-  return biggestNum;
-}
-function determineLowLimit() {
-  const smallestNum = parseInt(document.getElementById('lower').value);
-  console.log('smallest in determine', smallestNum);
-  return smallestNum;
-}
 function hideRange() {
   document.getElementById('range').style.display = 'none';
 }
@@ -80,8 +89,3 @@ function submitRange(biggestNum, smallestNum) {
   hideRange();
   showGame();
 }
-// -set the range of the game
-// -hide current form
-// -h3 current range of game
-// -h2 for current messages
-// -display main game div
