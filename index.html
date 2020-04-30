@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Numbers</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1>Guess the Number Game!</h1>
+    <p>Set the range of numbers, lowest and highest, and then try to guess a randomly selected number!</p>
+    <div id="range">
+
+    <label for="lower">Set Lowest Number in the Game Range:</label>
+    <input type="number" id="lower" name="lower" value="1"></input>
+    <label for="upper">Set Highest Number in the Game Range:</label>
+    <input type="number" id="upper" name="upper" value="50"></input>
+    <button id="rangeSubmit" value="Submit Range">Submit Range!</button>
+
+    </div>
+    <div id="game" style="display:none;">
+
+        <h3 id='gameRange'></h3>
+        <h2 id='gameStatus'></h2>
+        <label id="end" for="guess">Guess the Number!</label>
+        <input  id="guess" name="guess"></input>
+        <button  id="guessSubmit" type="submit" value="Guess!">Guess!</button>
+
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
