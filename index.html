@@ -1,33 +1,72 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Numbers</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <h1>Guess the Number Game!</h1>
-    <p>Set the range of numbers, lowest and highest, and then try to guess a randomly selected number!</p>
-    <div id="range">
+<html lang="en">
+<head>
 
-    <label for="lower">Set Lowest Number in the Game Range:</label>
-    <input type="number" id="lower" name="lower" value="1"></input>
-    <label for="upper">Set Highest Number in the Game Range:</label>
-    <input type="number" id="upper" name="upper" value="50"></input>
-    <button id="rangeSubmit" value="Submit Range">Submit Range!</button>
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Guess the number!</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
 
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/styles.css"
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="six columns offset-by-three" style="margin-top:10%">
+        <h1>Guess the Number!</h1>
+        <p>Set the range of numbers, lowest and highest, and then try to guess a randomly selected number!</p>
+      </div>
     </div>
-    <div id="game" style="display:none;">
 
-        <h3 id='gameRange'></h3>
-        <h2 id='gameStatus'></h2>
-        <label id="end" for="guess">Guess the Number!</label>
-        <input  id="guess" name="guess"></input>
-        <button  id="guessSubmit" type="submit" value="Guess!">Guess!</button>
+      <div id="range" class="row">
+        <div class="six columns offset-by-three" style="margin-top:0%;">
+          <label for="lower">Set Lowest Number in the Game Range:</label>
+          <input type="number" id="lower" name="lower" value="1"></input>
+          <label for="upper">Set Highest Number in the Game Range:</label>
+          <input type="number" id="upper" name="upper" value="50"></input>
+          <button class="button-primary" id="rangeSubmit" value="Submit Range">Submit Range!</button>
+        </div>
+      </div>
 
+    <div id="game" class="row" style="display: none;">
+      <div class="six columns offset-by-three">
+        <h5 id="gameRange"></h5>
+        <hr>
+        <h5 id="gameStatus"></h5>
+        <form>
+          <label id="end" for="guess">Guess the Number!</label>
+          <input id="guess" name="guess" value=""></input>
+          <button class="button-primary" id="guessSubmit" type="button" value="Guess!">Guess!</button>
+
+      </div>
     </div>
 
-    <script src="script.js"></script>
-  </body>
+  </div>
+
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
 </html>

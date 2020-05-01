@@ -37,14 +37,14 @@ function determineLowLimit() {
 let prevGuesses = [];
 function guessTracker(prevGuesses, secretNum) {
   console.log('secret at guess', secretNum);
-  let guess = parseInt(document.getElementById('guess').value);
+  const guess = parseInt(document.getElementById('guess').value);
   prevGuesses.push(guess);
   return prevGuesses;
 }
 
 function acceptGuess(secretNum, prevGuesses) {
   console.log('secretNum at accept', secretNum);
-  let guess = parseInt(document.getElementById('guess').value);
+  const guess = parseInt(document.getElementById('guess').value);
   // const gameStatus = document.getElementById('gameStatus').innerHTML;
   console.log('guess in accept', guess);
   if (guess === secretNum) {
@@ -55,9 +55,11 @@ function acceptGuess(secretNum, prevGuesses) {
     return;
   } else if (guess !== secretNum) {
     if (guess > secretNum) {
-      document.getElementById('gameStatus').innerHTML = `Your guess is too high. Previous guesses: ${prevGuesses.join(', ')}`;
+      document.getElementById('gameStatus').innerHTML = `Your guess is too high.
+      Previous guesses: ${prevGuesses.join(', ')}`;
     } else {
-      document.getElementById('gameStatus').innerHTML = `Your guess is too low. Previous guesses: ${prevGuesses.join(', ')}`;
+      document.getElementById('gameStatus').innerHTML = `Your guess is too low.
+      Previous guesses: ${prevGuesses.join(', ')}`;
     }
   }
 }
@@ -75,10 +77,10 @@ function checkRan(secretNum) {
 }
 
 function hideRange() {
-  document.getElementById('range').style.display = 'none';
+  document.querySelector('#range').style.display = 'none';
 }
 function showGame() {
-  document.getElementById('game').style.display = 'block';
+  document.querySelector('#game').style.display = 'block';
 }
 // on submit
 function submitRange(biggestNum, smallestNum) {
