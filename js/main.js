@@ -62,6 +62,7 @@ function acceptGuess(secretNum, prevGuesses) {
       Previous guesses: ${prevGuesses.join(', ')}`;
     }
   }
+  document.getElementById('guess').value = '';
 }
 // random number range equation
 function randomNum(biggestNum, smallestNum) {
