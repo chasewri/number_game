@@ -1,41 +1,18 @@
 let biggestNum;
 let smallestNum;
+
 // set onclick for first
 rangeDiv = document.getElementById('rangeSubmit');
-rangeDiv.addEventListener('click', determineLowLimit);
-rangeDiv.addEventListener('click', determineUpLimit);
-rangeDiv.addEventListener('click', function(){submitRange(biggestNum, smallestNum)});
-rangeDiv.addEventListener('click', function(){randomNum(biggestNum, smallestNum)});
+rangeDiv.addEventListener('click', function() {
+  submitRange();
+  randomNum(biggestNum, smallestNum);
+});
 
 guessDiv = document.getElementById('guessSubmit');
 guessDiv.addEventListener('click', function() {
   guessTracker(prevGuesses, secretNum);
-  checkRan(secretNum);
   acceptGuess(secretNum, prevGuesses);
 });
-//
-// This shouldn't be called globally like this for it to work the way I want.
-//
-// const biggestNum = determineUpLimit();
-// const smallestNum = determineLowLimit();
-
-//
-// If I don't define biggestNum and smallestNum globally, it's saying they're undefined at
-// lines 5 and 6. I don't understand why they won't pass as arguements there.
-// They console.log within the function fine.
-//
-//
-function determineUpLimit() {
-  biggestNum = parseInt(document.getElementById('upper').value);
-  console.log('biggest in determine', biggestNum);
-  return biggestNum;
-}
-function determineLowLimit() {
-  smallestNum = parseInt(document.getElementById('lower').value);
-  console.log('smallest in determine', smallestNum);
-  return smallestNum;
-}
-
 
 let prevGuesses = [];
 function guessTracker(prevGuesses, secretNum) {
@@ -54,6 +31,7 @@ function acceptGuess(secretNum, prevGuesses) {
     document.getElementById('end').style.display = 'none';
     document.getElementById('guess').style.display = 'none';
     document.getElementById('guessSubmit').style.display = 'none';
+    document.getElementById('gameRange').style.display = 'none';
     document.getElementById('gameStatus').innerHTML = `Congrats! You guessed ${guess}! You got the secret number in ${prevGuesses.length} guesses!`;
     return;
   } else if (guess !== secretNum) {
@@ -76,10 +54,6 @@ function randomNum(biggestNum, smallestNum) {
   return secretNum;
 }
 
-function checkRan(secretNum) {
-  console.log('secret at check', secretNum);
-}
-
 function hideRange() {
   document.querySelector('#range').style.display = 'none';
 }
@@ -87,11 +61,14 @@ function showGame() {
   document.querySelector('#game').style.display = 'block';
 }
 // on submit
-function submitRange(biggestNum, smallestNum) {
+function submitRange() {
   // set biggestNum and smallestNum
+  biggestNum = parseInt(document.getElementById('upper').value);
+  smallestNum = parseInt(document.getElementById('lower').value);
   console.log('biggest in submit', biggestNum);
-  console.log('smallest in submit', smallestNum);
+
   document.getElementById('gameRange').innerHTML = `Guess a number between ${smallestNum} and ${biggestNum}!`;
   hideRange();
   showGame();
+  return biggestNum && smallestNum;
 }
