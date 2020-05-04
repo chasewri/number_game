@@ -1,3 +1,5 @@
+let biggestNum;
+let smallestNum;
 // set onclick for first
 rangeDiv = document.getElementById('rangeSubmit');
 rangeDiv.addEventListener('click', determineLowLimit);
@@ -6,15 +8,16 @@ rangeDiv.addEventListener('click', function(){submitRange(biggestNum, smallestNu
 rangeDiv.addEventListener('click', function(){randomNum(biggestNum, smallestNum)});
 
 guessDiv = document.getElementById('guessSubmit');
-guessDiv.addEventListener('click', function(){guessTracker(prevGuesses, secretNum)});
-guessDiv.addEventListener('click', function(){checkRan(secretNum)});
-guessDiv.addEventListener('click', function(){acceptGuess(secretNum, prevGuesses)});
-
+guessDiv.addEventListener('click', function() {
+  guessTracker(prevGuesses, secretNum);
+  checkRan(secretNum);
+  acceptGuess(secretNum, prevGuesses);
+});
 //
 // This shouldn't be called globally like this for it to work the way I want.
 //
-const biggestNum = determineUpLimit();
-const smallestNum = determineLowLimit();
+// const biggestNum = determineUpLimit();
+// const smallestNum = determineLowLimit();
 
 //
 // If I don't define biggestNum and smallestNum globally, it's saying they're undefined at
@@ -23,12 +26,12 @@ const smallestNum = determineLowLimit();
 //
 //
 function determineUpLimit() {
-  const biggestNum = parseInt(document.getElementById('upper').value);
+  biggestNum = parseInt(document.getElementById('upper').value);
   console.log('biggest in determine', biggestNum);
   return biggestNum;
 }
 function determineLowLimit() {
-  const smallestNum = parseInt(document.getElementById('lower').value);
+  smallestNum = parseInt(document.getElementById('lower').value);
   console.log('smallest in determine', smallestNum);
   return smallestNum;
 }
