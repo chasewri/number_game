@@ -44,6 +44,7 @@ function acceptGuess(secretNum, prevGuesses) {
     }
   }
   document.getElementById('guess').value = '';
+  focusGuess();
 }
 // random number range equation
 function randomNum(biggestNum, smallestNum) {
@@ -52,6 +53,9 @@ function randomNum(biggestNum, smallestNum) {
   this.secretNum = Math.floor(Math.random() * (biggestNum - smallestNum + 1)) + smallestNum;
   console.log('secretNum in random', secretNum);
   return secretNum;
+}
+function focusGuess() {
+  document.querySelector('#guess').focus();
 }
 
 function hideRange() {
@@ -70,5 +74,6 @@ function submitRange() {
   document.getElementById('gameRange').innerHTML = `Guess a number between ${smallestNum} and ${biggestNum}!`;
   hideRange();
   showGame();
+  focusGuess();
   return biggestNum && smallestNum;
 }
